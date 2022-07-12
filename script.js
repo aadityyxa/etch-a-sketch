@@ -25,3 +25,41 @@ function gridGenerator(input) {
     }   
     return input;
 }
+
+slider.oninput = function() {
+    
+    while(container.firstChild) {
+
+        container.removeChild(container.firstChild);
+
+    }
+    gridGenerator(this.value);
+    sketchingPen();
+
+}
+
+
+document.addEventListener('mousedown', () => {
+    trigger = true;
+})
+
+document.addEventListener('mouseup',() => {
+    trigger = false;
+})
+
+function sketchingPen() {
+    const squares = document.querySelectorAll('.square');
+
+    squares.forEach((square) => square.addEventListener('click',() => {
+        square.classList.remove('erasing')
+        square.classList.add('sketching');
+    }))
+
+    squares.forEach((square) => square.addEventListener('mouseenter',() => {
+        if(trigger === true) {
+            square.classList.remove('erasing')
+            square.classList.add('sketching');
+        }
+    }))
+    return;
+}
