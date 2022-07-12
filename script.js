@@ -63,3 +63,27 @@ function sketchingPen() {
     }))
     return;
 }
+
+function eraser() {
+    const squares = document.querySelectorAll('.square');
+
+    squares.forEach((square) => square.addEventListener('click',() => {
+        square.classList.remove('sketching')
+        square.classList.add('erasing');
+    }))
+
+    squares.forEach((square) => square.addEventListener('mouseenter', () => {
+        if(trigger === true) {
+            square.classList.remove('sketching')
+            square.classList.add('erasing');
+        }
+    }))
+    return;
+}
+
+function clearGrid() {     
+    const squares = document.querySelectorAll('.square');
+    
+    squares.forEach((square) => {square.classList.remove('sketching')})
+
+}cd 
