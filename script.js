@@ -86,4 +86,25 @@ function clearGrid() {
     
     squares.forEach((square) => {square.classList.remove('sketching')})
 
-}cd 
+}
+
+function functionality() {
+
+    buttons.forEach((button) => button.addEventListener('click', () => {
+        if(button.className === 'pen') {
+            sketchingPen()
+        }else if(button.className === 'eraser') {
+            eraser();
+        }else if(button.className === 'clear') {
+            clearGrid();
+        }else if(button.className === 'rainbow') {
+            rainbowMode();
+        }
+    }))
+
+}
+
+
+
+gridGenerator(16);
+functionality();
